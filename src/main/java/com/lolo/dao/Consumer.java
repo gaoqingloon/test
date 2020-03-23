@@ -2,6 +2,7 @@ package com.lolo.dao;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
@@ -11,9 +12,10 @@ import java.util.Optional;
  * @Description:
  * @version: 1.0
  */
+@Component
 public class Consumer {
 
-    @KafkaListener(topics = {"test"})
+    @KafkaListener(topics = {"test-kafka"})
     public void listen(ConsumerRecord<?, ?> record) {
 
         Optional<?> kafkaMessage = Optional.ofNullable(record.value());
